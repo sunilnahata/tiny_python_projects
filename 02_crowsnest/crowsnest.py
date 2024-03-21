@@ -13,12 +13,12 @@ def get_args():
     """Get command-line arguments"""
 
     parser = argparse.ArgumentParser(
-        description='Choose the article',
+        description="Crow's Nest -- Choose the article",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
     parser.add_argument('word',
                         metavar='word',
-                        help='The thing we see')
+                        help='A word')
 
     return parser.parse_args()
 
@@ -29,13 +29,8 @@ def main():
 
     args = get_args()
     word = args.word
-    article = ""
+    article = "an" if word[0].lower() in 'aeiou' else 'a'
     
-    if word[0].lower() in 'aeiou':
-        article = "an"
-    else:
-        article = "a"
-
     print(f"Ahoy, Captain, {article} {word} off the larboard bow!") 
 
 # --------------------------------------------------
